@@ -1,0 +1,182 @@
+//======================= 基础公共样式 =======================
+/*BODY类*/
+$line-height : 1.5 !default;
+$font-size   : 14px !default;
+$font-family : 'Roboto', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+body{
+  font-family: $font-family;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  line-height: $line-height;
+  font-size: $font-size;
+}
+*, *:before, *:after{
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+}
+html, body{
+  width: 100%;
+  height:100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+code, kbd, pre, samp{
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+hr{
+  box-sizing: content-box;;
+  height: 0;
+  overflow: visible;
+}
+button,
+input,
+select{
+  overflow: visible;
+  text-transform: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea{
+  font: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+button::-moz-focus-inner, input::-moz-focus-inner{
+  border: 0;
+  padding: 0;
+}
+a{
+  outline: 0;
+  text-decoration: none;
+}
+button:-moz-focusring, input:-moz-focusring{outline: 1px dotted ButtonText}
+img{border-style: none}
+svg:not(:root){overflow: hidden}
+textarea{overflow: auto}
+li{list-style: none}
+  
+
+/*边距类*/
+$space-base   : 16px !default;
+$space-x-base : $space-base !default;
+$space-y-base : $space-base !default;
+
+$space-none   : (x: 0, y: 0) !default;
+$space-xs     : (x: ($space-x-base * .25), y: ($space-y-base * .25)) !default;
+$space-sm     : (x: ($space-x-base * .5), y: ($space-y-base * .5)) !default;
+$space-md     : (x: $space-x-base, y: $space-y-base) !default;
+$space-lg     : (x: ($space-x-base * 1.5), y: ($space-y-base * 1.5)) !default;
+$space-xl     : (x: ($space-x-base * 3), y: ($space-y-base * 3)) !default;
+$spaces: ('none': $space-none, 'xs': $space-xs, 'sm': $space-sm, 'md': $space-md, 'lg': $space-lg, 'xl': $space-xl) !default;
+
+@each $space, $value in $spaces {
+    //padding
+  .fox-pa-#{$space} {padding: map-get($value, "y") map-get($value, "x");}
+  .fox-pl-#{$space} {padding-left: map-get($value, "x");}
+  .fox-pr-#{$space} {padding-right: map-get($value, "x");}
+  .fox-pt-#{$space} {padding-top: map-get($value, "y");}
+  .fox-pb-#{$space} {padding-bottom: map-get($value, "y");}
+  .fox-px-#{$space} {padding-left: map-get($value, "x");padding-right: map-get($value, "x");}
+  .fox-py-#{$space} {padding-top: map-get($value, "y");padding-bottom: map-get($value, "y");}
+
+  //margin
+  .fox-ma-#{$space} {margin: map-get($value, "y") map-get($value, "x");}
+  .fox-ml-#{$space} {margin-left: map-get($value, "x");}
+  .fox-mr-#{$space} {margin-right: map-get($value, "x");}
+  .fox-mt-#{$space} {margin-top: map-get($value, "y");}
+  .fox-mb-#{$space} {margin-bottom: map-get($value, "y");}
+  .fox-mx-#{$space} {margin-left: map-get($value, "x");margin-right: map-get($value, "x");}
+  .fox-my-#{$space} {margin-top: map-get($value, "y");margin-bottom: map-get($value, "y");}
+}
+.fox-mt-auto, .fox-my-auto{margin-top: auto}  
+.fox-ml-auto, .fox-mx-auto{margin-left: auto}  
+.fox-mb-auto, .fox-my-auto{margin-bottom: auto}  
+.fox-mr-auto, .fox-mx-auto{margin-right: auto}
+
+/*鼠标类*/
+.c{
+  &-p{cursor: pointer !important}
+  &-not-allowed{cursor: not-allowed !important}
+  &-inherit{cursor: inherit !important}
+  &-none{cursor: none !important}
+}
+
+/*大小类*/
+.fit{width: 100% !important; height: 100% !important;}
+.full-width{width: 100% !important;}
+.full-height{height: 100% !important;}
+.window-width { margin-left: 0 !important; margin-right: 0 !important; width: 100vw !important; }
+.window-height { margin-top: 0 !important; margin-bottom: 0 !important; height: 100vh !important; }
+.block{display:block !important}
+.inline{display: inline-block !important}
+
+/*方向类*/
+.flip-horizontal { transform: scaleX(-1); }
+.flip-vertical { transform: scaleY(-1); }
+$rotates : (45, 90, 135, 180, 205, 270, 315) !default;
+@each $value in $rotates {
+  .fox-r-#{$value} {transform: rotate(#{$value}deg)}
+}
+
+/*可见性*/
+.no-margin{margin: 0 !important}
+.no-padding{padding: 0 !important}
+.no-border{border: 0 !important}
+.no-border-radius{border-radius: 0 !important}
+.no-box-shadow{box-shadow: none !important}
+.no-outline{outline: 0 !important}
+.hidden{display: none !important}
+.invisible{visibility: hidden !important}
+.transparent{background: transparent !important}
+.overflow-auto{overflow: auto !important}
+.overflow-hidden{overflow: hidden !important}
+.overflow-hidden-y{overflow-y: hidden !important}
+.hide-scrollbar{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}
+
+
+/*CSS定位类*/
+.float-left{float: left}
+.float-right{float: right}
+.fixed{position: fixed}
+.relative{position: relative}
+.absolute{position: absolute}
+.flex { display: flex; flex-wrap: wrap; }
+.justify-{
+  &start{justify-content: flex-start}    
+  &end{justify-content: flex-end}
+  &center{justify-content: center}
+  &between{justify-content: space-between}
+  &around{justify-content: space-around}
+  &evenly{justify-content: space-evenly}
+}
+.items-{
+  &start{align-items: flex-start}
+  &end{align-items: flex-end}
+  &center{align-items: center}
+  &baseline{align-items: baseline}
+  &stretch{align-items: stretch}
+}
+.text-{
+    &left{text-align: left;}
+    &center{text-align: center;}
+    &right{text-align: right;}
+}
+
+
